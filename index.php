@@ -1,6 +1,41 @@
-<?php
-// Composer class autoloader
-require_once __DIR__ . '/vendor/autoload.php';
+<!DOCTYPE html>
+<html>
+<head>
+    <?php
+    // Composer class autoloader
+    require_once __DIR__ . '/vendor/autoload.php';
+    ?>
 
-//Remove it later
-echo '<h1 style="text-align: center">Welcome to PHP</h1>';
+    <title>Portfolio</title>
+    <style type="text/css">
+        .header{
+            height: 50px;
+            background-color: black;
+            color: white;  
+            text-align: center;
+            font-size: 30px; 
+        }
+
+    </style>
+</head>
+<body>
+
+   <div class="header">My Portfolio</div>
+    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
+        <label for="firstname">First Name: </label>
+        <input type="text" id="firstname" name="firstname">
+        <label for="lastname">Last Name: </label>
+        <input type="text" id="lastname" name="lastname">
+        <button type="submit">GET</button>
+        <button type="submit" formmethod="post">POST</button>
+    </form>
+    <?php include('src/Request.php');
+    
+    $NewRequest = new Request();
+    $NewRequest->GetOrPost();
+    $NewRequest->RequestedURI();
+    $NewRequest->RequestParametrs();
+    
+    ?>
+</body>
+</html>
