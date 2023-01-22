@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php
-    // Composer class autoloader
-    require_once __DIR__ . '/vendor/autoload.php';
-    ?>
+</head>
+<body>
 
-    <title>Portfolio</title>
-    <style type="text/css">
+
+<style>
         .header{    
             height: 50px;
             background-color: black;
@@ -16,7 +14,7 @@
             font-size: 30px; 
         }
 
-        body{
+  body{
     margin: 0;
     padding: 0;
     width: 100%;
@@ -46,12 +44,12 @@ nav input:hover {
   background-color: #111;
 }
 
-    </style>
-</head>
-<body>
 
-   <div class="header">My Portfolio</div>
-   <nav>
+</style>
+
+
+<div class="header">About</div>
+<nav>
   <ul>
     <li>
     <form action="index.php" method="POST">
@@ -75,27 +73,8 @@ nav input:hover {
     </li>
   </ul>
 </nav>
-   <!--  <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
-        <label for="firstname">First Name: </label>
-        <input type="text" id="firstname" name="firstname">
-        <label for="lastname">Last Name: </label>
-        <input type="text" id="lastname" name="lastname">
-        <button type="submit">GET</button>
-        <button type="submit" formmethod="post">POST</button>
-    </form> -->
-    <script>
-    document.getElementById("redirect-button").addEventListener("click",
-function(){
-    window.location.href = "New.php";
-});
-    </script>
-    <!-- <?php include('src/Request.php');
-    
-    $NewRequest = new Request();
-    $NewRequest->GetOrPost();
-    $NewRequest->RequestedURI();
-    $NewRequest->RequestParametrs();
-    
-    ?> -->
+
+
+
 </body>
 </html>
