@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <?php
-    // Composer class autoloader
-    require_once __DIR__ . '/vendor/autoload.php';
-    ?>
+</head>
+<body>
 
-    <title>Portfolio</title>
-    <style type="text/css">
-        .header{    
-            height: 50px;
-            background-color: black;
-            color: white;  
-            text-align: center;
-            font-size: 30px; 
-        }
 
-        body{
+<style>
+  body{
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     background-color: #272727;
   }
+
+  .header{    
+    height: 50px;
+    background-color: black;
+    color: white;  
+    text-align: center;
+    font-size: 30px; 
+        }
 
     nav {
   background-color: #333;
@@ -70,14 +68,15 @@ footer a:hover {
   justify-content: space-between;
   min-height: 90vh;
 }
+.Requestbutton{
+    padding-top: 30px;
+}
+
+</style>
 
 
-    </style>
-</head>
-<body>
-
-   <div class="header">My Portfolio</div>
-   <nav>
+<div class="header">Services</div>
+<nav>
   <ul>
     <li>
     <form action="index.php" method="POST">
@@ -104,10 +103,25 @@ footer a:hover {
 
 <div class="container">
   <div class="maintext">
-    <div>
-  <p>This is my portfolio website</p>
-  <h2>Hope you enjoy your stay</h2>
-  </div>
+    <h2>Your name:</h2>
+    <form>
+        <input type="text">
+    </form>
+    <h2>Phone number:</h2>
+    <form>
+        <input type="tel">
+    </form>
+    <h2>Email:</h2>
+    <form>
+        <input type="email">
+    </form>
+    <h2>Type of service</h2>
+    <form>
+        <input type="text">
+    </form>
+    <form class="Requestbutton" action="ServiceRequest.php" method="POST">
+    <input type="submit" value="Request a service">
+    </form>
   </div>
   <footer>
     <div>
@@ -120,27 +134,5 @@ footer a:hover {
 
 
 
-   <!--  <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
-        <label for="firstname">First Name: </label>
-        <input type="text" id="firstname" name="firstname">
-        <label for="lastname">Last Name: </label>
-        <input type="text" id="lastname" name="lastname">
-        <button type="submit">GET</button>
-        <button type="submit" formmethod="post">POST</button>
-    </form> -->
-    <script>
-    document.getElementById("redirect-button").addEventListener("click",
-function(){
-    window.location.href = "New.php";
-});
-    </script>
-    <!-- <?php include('src/Request.php');
-    
-    $NewRequest = new Request();
-    $NewRequest->GetOrPost();
-    $NewRequest->RequestedURI();
-    $NewRequest->RequestParametrs();
-    
-    ?> -->
 </body>
 </html>
