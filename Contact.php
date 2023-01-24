@@ -34,9 +34,9 @@ nav li {
   float: left;
 }
 nav input {
-  color: white;
+  color: black;
   text-align: center;
-  padding: 14px 197.5px;
+  padding: 14px 188.5px;
   font-size: 30px;
   text-decoration: none;
 }
