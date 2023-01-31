@@ -36,7 +36,7 @@ nav li {
 nav input {
   color: black;
   text-align: center;
-  padding: 14px 188.5px;
+  padding: 14px 32px;
   font-size: 30px;
   text-decoration: none;
 }
@@ -74,7 +74,7 @@ footer a:hover {
 </style>
 
 
-<div class="header">Contact</div>
+<div class="header">Computers</div>
 <nav>
   <ul>
     <li>
@@ -83,18 +83,18 @@ footer a:hover {
     </form>
     </li>
     <li>
-    <form action="About.php" method="POST">
-    <input type="submit" value="About">
+    <form action="Computers.php" method="POST">
+    <input type="submit" value="Computers">
     </form>
     </li>
     <li>
-    <form action="Services.php" method="POST">
-    <input type="submit" value="Services">
+    <form action="Consoles.php" method="POST">
+    <input type="submit" value="Consoles">
     </form>
     </li>
     <li>
-    <form action="Contact.php" method="POST">
-    <input type="submit" value="Contact">
+    <form action="Games.php" method="POST">
+    <input type="submit" value="Games">
     </form>
     </li>
   </ul>

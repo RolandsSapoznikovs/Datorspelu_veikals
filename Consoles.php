@@ -37,14 +37,13 @@ nav li {
 nav input {
   color: black;
   text-align: center;
-  padding: 14px 188.5px;
+  padding: 14px 32px;
   font-size: 30px;
   text-decoration: none;
 }
 nav input:hover {
   background-color: #111;
 }
-
 .maintext{
   color: white;
   text-align: center
@@ -70,11 +69,10 @@ footer a:hover {
   min-height: 90vh;
 }
 
-
 </style>
 
 
-<div class="header">About</div>
+<div class="header">Consoles</div>
 <nav>
   <ul>
     <li>
@@ -83,18 +81,18 @@ footer a:hover {
     </form>
     </li>
     <li>
-    <form action="About.php" method="POST">
-    <input type="submit" value="About">
+    <form action="Computers.php" method="POST">
+    <input type="submit" value="Computers">
     </form>
     </li>
     <li>
-    <form action="Services.php" method="POST">
-    <input type="submit" value="Services">
+    <form action="Consoles.php" method="POST">
+    <input type="submit" value="Consoles">
     </form>
     </li>
     <li>
-    <form action="Contact.php" method="POST">
-    <input type="submit" value="Contact">
+    <form action="Games.php" method="POST">
+    <input type="submit" value="Games">
     </form>
     </li>
   </ul>
@@ -102,10 +100,16 @@ footer a:hover {
 
 <div class="container">
   <div class="maintext">
-  <p>About me</p>
-  <h2>I am a student learning in 'RVT' and im on my 3rd course out of 4 also i plan to go for further education in a university</h2>
-  <h2>I have alot of expierience with many programming languages like css, html, js, c#, c++, python and some others</h2>
-  <h2>I don't have any expierience with working yet so i don't really know how it is to work</h2>
+    <p>My Services</p>
+    <h2>I don't have alot to offer because i don't have a lot of expierience with work but some of the things i can do is:</h2>
+    <h3>Backend development</h3>
+    <h3>Frontend development</h3>
+    <h3>Database upkeep (sql)</h3>
+    <h3>c++ programming</h3>
+    <h3>c# programming</h3>
+    <form action="ServiceRequest.php" method="POST">
+    <input type="submit" value="Request a service">
+    </form>
   </div>
   <footer>
     <div>
@@ -116,6 +120,7 @@ footer a:hover {
   </div>
 
 
-</body>
 
+
+</body>
 </html>

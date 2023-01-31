@@ -6,7 +6,7 @@
     require_once __DIR__ . '/vendor/autoload.php';
     ?>
 
-    <title>Portfolio</title>
+    <title>IGame</title>
     <style type="text/css">
         .header{    
             height: 50px;
@@ -39,7 +39,7 @@ nav li {
 nav input {
   color: black;
   text-align: center;
-  padding: 14px 188.5px;
+  padding: 14px 32px;
   font-size: 30px;
   text-decoration: none;
 }
@@ -76,7 +76,7 @@ footer a:hover {
 </head>
 <body>
 
-   <div class="header">My Portfolio</div>
+   <div class="header">IGame</div>
    <nav>
   <ul>
     <li>
@@ -85,18 +85,18 @@ footer a:hover {
     </form>
     </li>
     <li>
-    <form action="About.php" method="POST">
-    <input type="submit" value="About">
+    <form action="Computers.php" method="POST">
+    <input type="submit" value="Computers">
     </form>
     </li>
     <li>
-    <form action="Services.php" method="POST">
-    <input type="submit" value="Services">
+    <form action="Consoles.php" method="POST">
+    <input type="submit" value="Consoles">
     </form>
     </li>
     <li>
-    <form action="Contact.php" method="POST">
-    <input type="submit" value="Contact">
+    <form action="Games.php" method="POST">
+    <input type="submit" value="Games">
     </form>
     </li>
   </ul>
@@ -108,6 +108,23 @@ footer a:hover {
   <p>This is my portfolio website</p>
   <h2>Hope you enjoy your stay</h2>
   </div>
+  
+<!--   <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
+                <label for="firstname">First Name: </label>
+                <input type="text" id="firstname" name="firstname">
+                <label for="lastname">Last Name: </label>
+                <input type="text" id="lastname" name="lastname">
+                <button type="submit">GET</button>
+                <button type="submit" formmethod="post">POST</button>
+              </form>
+              <?php include('src/Request.php');
+    
+    $NewRequest = new Request();
+    $NewRequest->GetOrPost();
+    $NewRequest->RequestedURI();
+    $NewRequest->RequestParametrs();
+    
+    ?> -->
   </div>
   <footer>
     <div>
@@ -116,31 +133,5 @@ footer a:hover {
     </div>
   </footer>
   </div>
-
-
-
-
-   <!--  <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
-        <label for="firstname">First Name: </label>
-        <input type="text" id="firstname" name="firstname">
-        <label for="lastname">Last Name: </label>
-        <input type="text" id="lastname" name="lastname">
-        <button type="submit">GET</button>
-        <button type="submit" formmethod="post">POST</button>
-    </form> -->
-    <script>
-    document.getElementById("redirect-button").addEventListener("click",
-function(){
-    window.location.href = "New.php";
-});
-    </script>
-    <!-- <?php include('src/Request.php');
-    
-    $NewRequest = new Request();
-    $NewRequest->GetOrPost();
-    $NewRequest->RequestedURI();
-    $NewRequest->RequestParametrs();
-    
-    ?> -->
 </body>
 </html>
