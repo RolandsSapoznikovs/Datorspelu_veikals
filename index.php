@@ -7,6 +7,7 @@
     ?>
 
     <title>IGame</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style type="text/css">
         .header{    
             height: 50px;
@@ -35,6 +36,7 @@ nav ul {
 }
 nav li {
   float: left;
+  width: 25%;
 }
 nav input {
   color: black;
@@ -42,6 +44,7 @@ nav input {
   padding: 14px 32px;
   font-size: 30px;
   text-decoration: none;
+  width: 100%;
 }
 nav input:hover {
   background-color: #111;
@@ -55,7 +58,8 @@ footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 10px;
+  padding: 0;
+  margin: 0;
 }
 footer a {
   color: white;
@@ -70,8 +74,6 @@ footer a:hover {
   justify-content: space-between;
   min-height: 90vh;
 }
-
-
     </style>
 </head>
 <body>
@@ -108,6 +110,7 @@ footer a:hover {
   <p>This is my portfolio website</p>
   <h2>Hope you enjoy your stay</h2>
   </div>
+  <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
   
 <!--   <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
                 <label for="firstname">First Name: </label>
@@ -126,12 +129,12 @@ footer a:hover {
     
     ?> -->
   </div>
+  </div>
   <footer>
     <div>
       <p>Copyright © 2023 My Website</p>
       <p>Powered by OpenAI</p>
     </div>
   </footer>
-  </div>
 </body>
 </html>
