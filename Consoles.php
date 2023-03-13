@@ -5,71 +5,8 @@
 <body>
 
 
-<style>
-  body{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #272727;
-  }
-
-  .header{    
-    height: 50px;
-    background-color: black;
-    color: white;  
-    text-align: center;
-    font-size: 30px; 
-        }
-
-    nav {
-  background-color: #333;
-}
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-nav li {
-  float: left;
-}
-nav input {
-  color: black;
-  text-align: center;
-  padding: 14px 32px;
-  font-size: 30px;
-  text-decoration: none;
-}
-nav input:hover {
-  background-color: #111;
-}
-.maintext{
-  color: white;
-  text-align: center
-}
-
-footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-footer a {
-  color: white;
-  text-decoration: none;
-}
-footer a:hover {
-  color: #111;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 90vh;
-}
-
-</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
 
 
 <div class="header">Consoles</div>
@@ -111,13 +48,13 @@ footer a:hover {
     <input type="submit" value="Request a service">
     </form>
   </div>
+</div>
   <footer>
     <div>
       <p>Copyright © 2023 My Website</p>
       <p>Powered by OpenAI</p>
     </div>
   </footer>
-  </div>
 
 
 
