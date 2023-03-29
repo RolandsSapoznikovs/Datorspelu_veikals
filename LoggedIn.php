@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <?php
+    // Composer class autoloader
+    require_once __DIR__ . '/vendor/autoload.php';
+    ?>
+
+    <title>IGame</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="src/style.css" />
 </head>
 <body>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="src/style.css" />
-
-
-    <div class="header"><a href = "index.php">IGame<a></div>
+<div class="header"><a href = "index.php">IGame<a></div>
    <ul>
     <li>
       <form action="Consoles.php" method="POST">
@@ -64,7 +68,7 @@
             <input type="submit" value="Stationary">
           </form>
         </li>
-        <li> 
+        <li>
           <form action="#" method="POST">
             <input type="submit" value="Laptops">
           </form>
@@ -72,36 +76,36 @@
       </ul>
     </li>
     <li class = "RegisterBtn">
-      <form action="Register.php" method="POST">
-        <input type="submit" value="Register">
-      </form>
-    </li>
-    <li class = "LoginBtn">
-      <form action="Login.php" method="POST">
-        <input type="submit" value="Login">
-      </form>
+        <?php
+        session_start(); // start the session
+
+        // check if the user is logged in
+        if (!isset($_SESSION['username'])) {
+          // redirect the user to the login page if they are not logged in
+          header('Location: login.php');
+          exit();
+        }
+        $User = $_SESSION['username'];
+        // display the username if the user is logged in
+        echo "<p style = 'color: red; font-size: 30px;padding-top: 10px '>$User</p>"
+        ?>
     </li>
   </ul>
 
-
 <div class="container">
   <div class="maintext">
-    <p>My Contact information</p>
-    <h2>Email: rolandssapoznikovs@gmail.com</h2>
-    <h2>Phone number:+371 29848016</h2>
-    <h2>Github: RolandsSapoznikovs</h2>
-    <h2>You can also find me on social medias like facebook, instagram and twitter just by searching "Rolands Sapoznikovs"</h2>
+    <div>
+    <p>Welcome to my game website</p>
+    <h2>Hope you enjoy your stay</h2>
+    </div>
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
   </div>
 </div>
-  <footer>
-    <div>
-      <p>Copyright © 2023 My Website</p>
-      <p>Powered by OpenAI</p>
-    </div>
-  </footer>
-
-
-
-
+<footer>
+  <div>
+    <p>Copyright © 2023 My Website</p>
+    <p>Powered by OpenAI</p>
+  </div>
+</footer>
 </body>
 </html>

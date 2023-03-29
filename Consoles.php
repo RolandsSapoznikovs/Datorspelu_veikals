@@ -9,31 +9,80 @@
     <link rel="stylesheet" type="text/css" href="src/style.css" />
 
 
-<div class="header">Consoles</div>
-<nav>
-  <ul>
+    <div class="header"><a href = "index.php">IGame<a></div>
+   <ul>
     <li>
-    <form action="index.php" method="POST">
-    <input type="submit" value="Home">
-    </form>
-    </li>
-    <li>
-    <form action="Computers.php" method="POST">
-    <input type="submit" value="Computers">
-    </form>
-    </li>
-    <li>
-    <form action="Consoles.php" method="POST">
-    <input type="submit" value="Consoles">
-    </form>
+      <form action="Consoles.php" method="POST">
+        <input type="submit" value="Consoles">
+      </form>
+      <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Xbox">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="PS4">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Switch">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="VR">
+          </form>
+        </li>
+      </ul>
     </li>
     <li>
     <form action="Games.php" method="POST">
-    <input type="submit" value="Games">
+      <input type="submit" value="Games">
     </form>
+    <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Console Games">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Computer Games">
+          </form>
+        </li>
+      </ul>
+    </li>
+    <li>
+    <form action="Computers.php" method="POST">
+      <input type="submit" value="Computers">
+    </form>
+    <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Stationary">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Laptops">
+          </form>
+        </li>
+      </ul>
+    </li>
+    <li class = "RegisterBtn">
+      <form action="Register.php" method="POST">
+        <input type="submit" value="Register">
+      </form>
+    </li>
+    <li class = "LoginBtn">
+      <form action="Login.php" method="POST">
+        <input type="submit" value="Login">
+      </form>
     </li>
   </ul>
-</nav>
 
 <div class="container">
   <div class="maintext">

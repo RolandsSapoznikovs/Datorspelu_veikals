@@ -12,59 +12,90 @@
 </head>
 <body>
 
-   <div class="header">IGame</div>
-   <nav>
-  <ul>
+<div class="header"><a href = "index.php">IGame<a></div>
+   <ul>
     <li>
-    <form action="index.php" method="POST">
-    <input type="submit" value="Home">
-    </form>
-    </li>
-    <li>
-    <form action="Computers.php" method="POST">
-    <input type="submit" value="Computers">
-    </form>
-    </li>
-    <li>
-    <form action="Consoles.php" method="POST">
-    <input type="submit" value="Consoles">
-    </form>
+      <form action="Consoles.php" method="POST">
+        <input type="submit" value="Consoles">
+      </form>
+      <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Xbox">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="PS4">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Switch">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="VR">
+          </form>
+        </li>
+      </ul>
     </li>
     <li>
     <form action="Games.php" method="POST">
-    <input type="submit" value="Games">
+      <input type="submit" value="Games">
     </form>
+    <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Console Games">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Computer Games">
+          </form>
+        </li>
+      </ul>
+    </li>
+    <li>
+    <form action="Computers.php" method="POST">
+      <input type="submit" value="Computers">
+    </form>
+    <ul class = "dropdown">
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Stationary">
+          </form>
+        </li>
+        <li>
+          <form action="#" method="POST">
+            <input type="submit" value="Laptops">
+          </form>
+        </li>
+      </ul>
+    </li>
+    <li class = "RegisterBtn">
+      <form action="Register.php" method="POST">
+        <input type="submit" value="Register">
+      </form>
+    </li>
+    <li class = "LoginBtn">
+      <form action="Login.php" method="POST">
+        <input type="submit" value="Login">
+      </form>
     </li>
   </ul>
-</nav>
-</div>
 
 <div class="container">
   <div class="maintext">
     <div>
-  <p>This is my portfolio website</p>
-  <h2>Hope you enjoy your stay</h2>
+    <p>Welcome to my game website</p>
+    <h2>Hope you enjoy your stay</h2>
+    </div>
+    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
   </div>
-  <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
-  
-<!--   <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="get">
-                <label for="firstname">First Name: </label>
-                <input type="text" id="firstname" name="firstname">
-                <label for="lastname">Last Name: </label>
-                <input type="text" id="lastname" name="lastname">
-                <button type="submit">GET</button>
-                <button type="submit" formmethod="post">POST</button>
-              </form>
-              <?php include('src/Request.php');
-    
-    $NewRequest = new Request();
-    $NewRequest->GetOrPost();
-    $NewRequest->RequestedURI();
-    $NewRequest->RequestParametrs();
-    
-    ?> -->
-  </div>
-  </div>
+</div>
 <footer>
   <div>
     <p>Copyright © 2023 My Website</p>
