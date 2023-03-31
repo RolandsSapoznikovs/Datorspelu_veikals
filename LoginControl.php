@@ -28,8 +28,10 @@ $result = $conn->query($sql);
     exit();
   } else {
     // display an error message if the login credentials are incorrect
-    echo 'Invalid email or password.';
+    $error_msg = "Invalid email or password";
+    header("Location: Login.php?error=" . urlencode($error_msg));
+    die();
   }
 
-  $conn->close();
+  mysqli_close($conn);
 ?>

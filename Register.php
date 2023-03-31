@@ -24,6 +24,11 @@
             <input type = "email" id="Email" name = "Email"></div>
             <input type = "submit" value = "Register">
         </form>
+        <?php
+  if (isset($_GET['error'])) {
+    $error_msg = $_GET['error'];
+    echo "<p>" . $error_msg . "</p>";
+  } ?>
     </div>
   </div>
 </div>

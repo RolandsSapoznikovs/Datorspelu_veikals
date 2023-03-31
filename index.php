@@ -4,6 +4,7 @@
     <?php
     // Composer class autoloader
     require_once __DIR__ . '/vendor/autoload.php';
+    require_once('./php/Product.php')
     ?>
 
     <title>IGame</title>
@@ -88,13 +89,34 @@
   </ul>
 
 <div class="container">
-  <div class="maintext">
-    <div>
-    <p>Welcome to my game website</p>
-    <h2>Hope you enjoy your stay</h2>
-    </div>
-    <div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
-  </div>
+<div class = "row text-center py-5">
+    <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "igame";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+</div>
 </div>
 <footer>
   <div>

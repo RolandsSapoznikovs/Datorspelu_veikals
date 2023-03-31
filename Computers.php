@@ -1,8 +1,12 @@
+<?php
+require_once('./php/Product.php')
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
 </head>
 <body>
+
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="src/style.css" />
@@ -64,7 +68,7 @@
             <input type="submit" value="Stationary">
           </form>
         </li>
-        <li> 
+        <li>
           <form action="#" method="POST">
             <input type="submit" value="Laptops">
           </form>
@@ -83,15 +87,35 @@
     </li>
   </ul>
 
-
 <div class="container">
-  <div class="maintext">
-    <p>My Contact information</p>
-    <h2>Email: rolandssapoznikovs@gmail.com</h2>
-    <h2>Phone number:+371 29848016</h2>
-    <h2>Github: RolandsSapoznikovs</h2>
-    <h2>You can also find me on social medias like facebook, instagram and twitter just by searching "Rolands Sapoznikovs"</h2>
-  </div>
+<div class = "row text-center py-5">
+    <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "igame";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products WHERE ProductCategory = 'Computer'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+</div>
 </div>
   <footer>
     <div>

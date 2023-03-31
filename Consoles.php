@@ -1,3 +1,6 @@
+<?php
+require_once('./php/Product.php')
+    ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -85,18 +88,34 @@
   </ul>
 
 <div class="container">
-  <div class="maintext">
-    <p>My Services</p>
-    <h2>I don't have alot to offer because i don't have a lot of expierience with work but some of the things i can do is:</h2>
-    <h3>Backend development</h3>
-    <h3>Frontend development</h3>
-    <h3>Database upkeep (sql)</h3>
-    <h3>c++ programming</h3>
-    <h3>c# programming</h3>
-    <form action="ServiceRequest.php" method="POST">
-    <input type="submit" value="Request a service">
-    </form>
-  </div>
+<div class = "row text-center py-5">
+    <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "igame";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products WHERE ProductCategory = 'Console'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+  }
+} else {
+  echo "0 results";
+}
+$conn->close();
+?>
+</div>
 </div>
   <footer>
     <div>

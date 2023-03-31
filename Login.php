@@ -22,6 +22,11 @@
             <input type = "password" id="Password" name = "Password"></div> 
             <input type = "submit" value = "Register">
         </form>
+        <?php
+  if (isset($_GET['error'])) {
+    $error_msg = $_GET['error'];
+    echo "<p>" . $error_msg . "</p>";
+  } ?>
     </div>
   </div>
 </div>
