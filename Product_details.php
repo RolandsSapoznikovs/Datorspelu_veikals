@@ -5,7 +5,7 @@
     // Composer class autoloader
     require_once __DIR__ . '/vendor/autoload.php';
     require_once('./php/Product.php');
-    error_reporting(E_ERROR);
+    /* error_reporting(E_ERROR); */
 
     ?>
 
@@ -108,7 +108,6 @@
   </ul>
 
 <div class="container">
-<div class = "row text-center py-5">
 <?php
 error_reporting(E_ERROR);
 $servername = "localhost";
@@ -123,54 +122,22 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$Product = $_GET['product'];
 
-
-if($_GET['Category'] != '')
-{
-  $Category = substr($_GET['Category'], 0, -1);
-  $sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products WHERE ProductCategory = '$Category'";
-  $result = $conn->query($sql);
-
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
-    }
-  } else {
-    echo "0 results";
-  }
-  
-}else{
-  if($_GET['Name'] != ''){
-    $Name = substr($_GET['Name'], 0, -1);
-    $sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products WHERE ProductName LIKE '%$Name%'";
+$sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products WHERE ProductID = '$Product'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+        ProductDetails($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
       }
     } else {
       echo "0 results";
     }
-  }else{
-    $sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products";
-    $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-        Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
-      }
-    } else {
-      echo "0 results";
-    }
-  }
-}
 $conn->close();
 ?>
-</div>
 </div>
 <footer>
   <div>
