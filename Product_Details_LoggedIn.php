@@ -15,64 +15,64 @@
 </head>
 <body>
 
-<div class="header"><a href = "index.php">IGame<a></div>
+<div class="header"><a href = "LoggedIn.php">IGame<a></div>
    <ul>
     <li>
-      <form action="index.php" method="GET">
+      <form action="LoggedIn.php" method="GET">
         <input type="submit" value="Consoles" name = "Category">
       </form>
       <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Xbox" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="PS4" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Switch" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="VR Headsets" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="LoggedIn.php" method="GET">
       <input type="submit" value="Games" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Console Games" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Computer Games" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="LoggedIn.php" method="GET">
       <input type="submit" value="Computers" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Stationarys" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="LoggedIn.php" method="GET">
             <input type="submit" value="Laptops" name = "Name">
           </form>
         </li>
@@ -96,13 +96,30 @@
       </ul>
     </li>
     <li class = "RegisterBtn">
-      <form action="Register.php" method="POST">
-        <input type="submit" value="Register">
-      </form>
+        <?php
+        session_start(); // start the session
+
+        // check if the user is logged in
+        if (!isset($_SESSION['username'])) {
+          // redirect the user to the login page if they are not logged in
+          header('Location: login.php');
+          exit();
+        }
+        $User = $_SESSION['username'];
+        // display the username if the user is logged in
+        echo "<p style = 'color: red; font-size: 30px;padding-top: 10px '>$User</p>"
+        ?>
+        <ul class = "dropdownLogOut">
+        <li>
+          <form action="index.php" method="GET">
+            <input type="submit" value="Log out">
+          </form>
+        </li>
+      </ul>
     </li>
-    <li class = "LoginBtn">
-      <form action="Login.php" method="POST">
-        <input type="submit" value="Login">
+    <li class = "RegisterBtn">
+      <form action="Cart.php" method="POST">
+        <input type="submit" value="Cart">
       </form>
     </li>
   </ul>
@@ -130,7 +147,7 @@ $sql = "SELECT ProductID, ProductImage, ProductName, ProductPrice FROM products 
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        ProductDetails($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+        ProductDetailsLoggedIn($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
       }
     } else {
       echo "0 results";

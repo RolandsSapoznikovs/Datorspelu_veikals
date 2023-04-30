@@ -15,82 +15,99 @@
 </head>
 <body>
 
-<div class="header"><a href = "index.php">IGame<a></div>
+<div class="header"><a href = "Admin.php">IGame<a></div>
    <ul>
     <li>
-      <form action="index.php" method="GET">
+      <form action="Admin.php" method="GET">
         <input type="submit" value="Consoles" name = "Category">
       </form>
       <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Xbox" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="PS4" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Switch" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="VR Headsets" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="Admin.php" method="GET">
       <input type="submit" value="Games" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Console Games" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Computer Games" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="Admin.php" method="GET">
       <input type="submit" value="Computers" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Stationarys" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
+          <form action="Admin.php" method="GET">
             <input type="submit" value="Laptops" name = "Name">
           </form>
         </li>
       </ul>
     </li>
-    <li class = "RegisterBtn">
-      <form action="Register.php" method="POST">
-        <input type="submit" value="Register">
-      </form>
+    <li>
+        <form action="AdminAdd.php" method="POST">
+        <input type="submit" value="Add product">
+        </form>
     </li>
-    <li class = "LoginBtn">
-      <form action="Login.php" method="POST">
-        <input type="submit" value="Login">
-      </form>
+    <li class = "RegisterBtn">
+        <?php
+        session_start(); // start the session
+
+        // check if the user is logged in
+        if (!isset($_SESSION['username'])) {
+          // redirect the user to the login page if they are not logged in
+          header('Location: login.php');
+          exit();
+        }
+        $User = $_SESSION['username'];
+        // display the username if the user is logged in
+        echo "<p style = 'color: red; font-size: 30px;padding-top: 10px '>$User</p>"
+        ?>
+        <ul class = "dropdownLogOut">
+        <li>
+          <form action="index.php" method="GET">
+            <input type="submit" value="Log out">
+          </form>
+        </li>
+      </ul>
     </li>
   </ul>
 
-<div class="container">
+  <div class="container">
 <div class = "row text-center py-5">
 <?php
 error_reporting(E_ERROR);
@@ -117,7 +134,7 @@ if($_GET['Category'] != '')
   if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-      Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+      ProductAdmin($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
     }
   } else {
     echo "0 results";
@@ -132,7 +149,7 @@ if($_GET['Category'] != '')
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+        ProductAdmin($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
       }
     } else {
       echo "0 results";
@@ -144,7 +161,7 @@ if($_GET['Category'] != '')
     if ($result->num_rows > 0) {
       // output data of each row
       while($row = $result->fetch_assoc()) {
-        Product($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
+        ProductAdmin($row['ProductName'], $row['ProductPrice'], $row['ProductImage'], $row['ProductID']);
       }
     } else {
       echo "0 results";

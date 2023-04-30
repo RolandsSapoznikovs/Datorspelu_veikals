@@ -4,7 +4,9 @@
     <?php
     // Composer class autoloader
     require_once __DIR__ . '/vendor/autoload.php';
-    require_once('./php/Product.php')
+    require_once('./php/Product.php');
+    error_reporting(E_ERROR);
+
     ?>
 
     <title>IGame</title>
@@ -13,94 +15,111 @@
 </head>
 <body>
 
-<div class="header"><a href = "index.php">IGame<a></div>
+<div class="header"><a href = "LoggedIn.php">IGame<a></div>
    <ul>
     <li>
-      <form action="index.php" method="GET">
+      <form action="LoggedIn.php" method="GET">
         <input type="submit" value="Consoles" name = "Category">
       </form>
       <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Xbox" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Xbox" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="PS4" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="PS4" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Switch" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Switch" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="VR" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="VR Headsets" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="LoggedIn.php" method="GET">
       <input type="submit" value="Games" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Console Games" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Console Games" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Computer Games" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Computer Games" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
-    <form action="index.php" method="GET">
+    <form action="LoggedIn.php" method="GET">
       <input type="submit" value="Computers" name = "Category">
     </form>
     <ul class = "dropdown">
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Stationary" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Stationarys" name = "Name">
           </form>
         </li>
         <li>
-          <form action="index.php" method="GET">
-            <input type="submit" value="Laptops" name = "Category">
+          <form action="LoggedIn.php" method="GET">
+            <input type="submit" value="Laptops" name = "Name">
           </form>
         </li>
       </ul>
     </li>
     <li>
       <form action="Giftcards.php" method="POST">
-        <input type="submit" value="Giftcards" name = "Category">
+        <input type="submit" value="Giftcards">
       </form>
       <ul class = "dropdown">
         <li>
           <form action="Giftcards.php" method="POST">
-            <input type="submit" value="MyGiftcards" name = "Category">
+            <input type="submit" value="MyGiftcards">
           </form>
         </li>
         <li>
           <form action="Giftcards.php" method="POST">
-            <input type="submit" value="Buy Giftcards" name = "Category">
+            <input type="submit" value="Buy Giftcards">
           </form>
         </li>
       </ul>
     </li>
     <li class = "RegisterBtn">
-      <form action="Register.php" method="POST">
-        <input type="submit" value="Register">
-      </form>
+        <?php
+        session_start(); // start the session
+
+        // check if the user is logged in
+        if (!isset($_SESSION['username'])) {
+          // redirect the user to the login page if they are not logged in
+          header('Location: login.php');
+          exit();
+        }
+        $User = $_SESSION['username'];
+        // display the username if the user is logged in
+        echo "<p style = 'color: red; font-size: 30px;padding-top: 10px '>$User</p>"
+        ?>
+        <ul class = "dropdownLogOut">
+        <li>
+          <form action="index.php" method="GET">
+            <input type="submit" value="Log out">
+          </form>
+        </li>
+      </ul>
     </li>
-    <li class = "LoginBtn">
-      <form action="Login.php" method="POST">
-        <input type="submit" value="Login">
+    <li class = "RegisterBtn">
+      <form action="Cart.php" method="POST">
+        <input type="submit" value="Cart">
       </form>
     </li>
   </ul>

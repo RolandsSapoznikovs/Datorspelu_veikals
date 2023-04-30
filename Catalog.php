@@ -11,7 +11,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-
+$Category = $_GET[''];
 
 mysqli_close($conn);
 ?>
